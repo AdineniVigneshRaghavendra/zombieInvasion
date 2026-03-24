@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://clx5hlkhepcop"]
 
 [ext_resource type="Texture2D" uid="uid://x3ge5mu1lh61" path="res://art/PNG/Man Blue/manBlue_stand.png" id="1_kuobi"]
+[ext_resource type="Script" uid="uid://ifhxwte5uqx0" path="res://scripts/player.gd" id="1_mm1xv"]
 [ext_resource type="Texture2D" uid="uid://x6qu1g2ovx02" path="res://art/PNG/Man Blue/manBlue_gun.png" id="2_0lm1f"]
 [ext_resource type="Texture2D" uid="uid://cdg1unquudulp" path="res://art/PNG/Man Blue/manBlue_silencer.png" id="3_couud"]
 [ext_resource type="Texture2D" uid="uid://due2v7dkbthlm" path="res://art/PNG/Man Blue/manBlue_machine.png" id="4_pir3r"]
 [ext_resource type="Texture2D" uid="uid://be54giq7177f" path="res://art/PNG/Man Blue/manBlue_hold.png" id="5_mm1xv"]
 [ext_resource type="Texture2D" uid="uid://hbdqcgfbesyb" path="res://art/PNG/Tiles/tile_241.png" id="6_qe8hj"]
+[ext_resource type="AudioStream" uid="uid://bn7ed8wf6b6w0" path="res://art/kenney_ui-pack/Sounds/click-a.ogg" id="7_pir3r"]
+[ext_resource type="AudioStream" uid="uid://dws1m6khqn5jg" path="res://art/kenney_ui-pack/Sounds/switch-b.ogg" id="8_mm1xv"]
+[ext_resource type="AudioStream" uid="uid://bf5fao88hnlvv" path="res://art/kenney_ui-pack/Sounds/tap-b.ogg" id="9_qe8hj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuobi"]
 size = Vector2(22.307693, 34.615387)
@@ -16,7 +20,74 @@ size = Vector2(40, 60)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_couud"]
 size = Vector2(28, 50)
 
+[sub_resource type="Animation" id="Animation_eju5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ta67"]
+resource_name = "hurting"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jhk7o"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wqow"]
+_data = {
+&"RESET": SubResource("Animation_eju5v"),
+&"hurting": SubResource("Animation_7ta67"),
+&"idle": SubResource("Animation_jhk7o")
+}
+
 [node name="player" type="CharacterBody2D" unique_id=914764848]
+modulate = Color(1, 0, 0, 1)
+script = ExtResource("1_mm1xv")
 
 [node name="shootController" type="Node2D" parent="." unique_id=1829358559]
 
@@ -96,3 +167,20 @@ position_smoothing_enabled = true
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_couud")
 debug_color = Color(0.98994845, 0, 0.28990948, 0.41960785)
+
+[node name="sounds" type="Node2D" parent="." unique_id=632179607]
+
+[node name="shoot" type="AudioStreamPlayer" parent="sounds" unique_id=1924476381]
+stream = ExtResource("7_pir3r")
+
+[node name="knife" type="AudioStreamPlayer" parent="sounds" unique_id=2021243540]
+stream = ExtResource("8_mm1xv")
+
+[node name="hurt" type="AudioStreamPlayer" parent="sounds" unique_id=1179253821]
+stream = ExtResource("9_qe8hj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1421280579]
+libraries/ = SubResource("AnimationLibrary_1wqow")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="TimerHurting" to="." method="_on_timer_hurting_timeout"]
