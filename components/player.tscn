@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://clx5hlkhepcop"]
+
+[ext_resource type="Texture2D" uid="uid://x3ge5mu1lh61" path="res://art/PNG/Man Blue/manBlue_stand.png" id="1_kuobi"]
+[ext_resource type="Texture2D" uid="uid://x6qu1g2ovx02" path="res://art/PNG/Man Blue/manBlue_gun.png" id="2_0lm1f"]
+[ext_resource type="Texture2D" uid="uid://cdg1unquudulp" path="res://art/PNG/Man Blue/manBlue_silencer.png" id="3_couud"]
+[ext_resource type="Texture2D" uid="uid://due2v7dkbthlm" path="res://art/PNG/Man Blue/manBlue_machine.png" id="4_pir3r"]
+[ext_resource type="Texture2D" uid="uid://be54giq7177f" path="res://art/PNG/Man Blue/manBlue_hold.png" id="5_mm1xv"]
+[ext_resource type="Texture2D" uid="uid://hbdqcgfbesyb" path="res://art/PNG/Tiles/tile_241.png" id="6_qe8hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuobi"]
+size = Vector2(22.307693, 34.615387)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lm1f"]
+size = Vector2(40, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_couud"]
+size = Vector2(28, 50)
+
+[node name="player" type="CharacterBody2D" unique_id=914764848]
+
+[node name="shootController" type="Node2D" parent="." unique_id=1829358559]
+
+[node name="body" type="Node2D" parent="." unique_id=871452762]
+
+[node name="idle" type="Sprite2D" parent="body" unique_id=52837778]
+texture_filter = 1
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("1_kuobi")
+
+[node name="attackSprites" type="Node2D" parent="body" unique_id=960231167]
+position = Vector2(6, 0)
+
+[node name="pistol" type="Sprite2D" parent="body/attackSprites" unique_id=1615106023]
+texture_filter = 1
+position = Vector2(6, 0)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_0lm1f")
+
+[node name="silencer" type="Sprite2D" parent="body/attackSprites" unique_id=1099444718]
+texture_filter = 1
+position = Vector2(6, 0)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("3_couud")
+
+[node name="machine" type="Sprite2D" parent="body/attackSprites" unique_id=2091093593]
+texture_filter = 1
+position = Vector2(6, 0)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("4_pir3r")
+
+[node name="knife" type="Sprite2D" parent="body" unique_id=1039117307]
+visible = false
+texture_filter = 1
+position = Vector2(-4.7683716e-07, 0)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_mm1xv")
+
+[node name="Sprite2D" type="Sprite2D" parent="body/knife" unique_id=1687169049]
+show_behind_parent = true
+position = Vector2(25.38462, -12.3076935)
+rotation = 1.0471976
+texture = ExtResource("6_qe8hj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="body/knife" unique_id=1303968550]
+show_behind_parent = true
+position = Vector2(23.846157, 7.692307)
+rotation = 1.5707964
+texture = ExtResource("6_qe8hj")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="body/knife" unique_id=155713006 groups=["knife"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/knife/Area2D" unique_id=1966844359]
+position = Vector2(30.38462, -1.9230773)
+shape = SubResource("RectangleShape2D_kuobi")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2061255441]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=105320764]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_0lm1f")
+
+[node name="aim" type="Node2D" parent="." unique_id=1009868672]
+position = Vector2(63, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1270467845]
+position_smoothing_enabled = true
+
+[node name="TimerKnifeAttack" type="Timer" parent="." unique_id=415255886]
+
+[node name="TimerReload" type="Timer" parent="." unique_id=1245767959]
+
+[node name="TimerHurting" type="Timer" parent="." unique_id=1818974799]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1051593500]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_couud")
+debug_color = Color(0.98994845, 0, 0.28990948, 0.41960785)
