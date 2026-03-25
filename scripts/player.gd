@@ -28,6 +28,7 @@ func _ready():
 	hurting_timer.wait_time = HURT_COOLDOWN
 	hurting_timer.one_shot = true
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
 	if Global.GAME_OVER == true or Global.GAME_ON == false:
 		return
@@ -66,7 +67,7 @@ func handle_sprite_state():
 		attack_sprites.visible = false
 		knife_sprite.visible = true
 		idle_sprite.visible = false
-	elif is_shooting == true and is_reloading == true:
+	elif is_shooting == true or is_reloading == true:
 		attack_sprites.visible = true
 		knife_sprite.visible = false
 		idle_sprite.visible = false
@@ -109,6 +110,6 @@ func _on_timer_hurting_timeout() :
 	for area in overlapping_areas:
 		if area.is_in_group("zombie"):
 			if camera_shaker:
-				camera_shaker.start_shake(8.0, 0.2)
+				camera_shaker.start_shake(10.0, 0.1)
 			take_damage(ZOMBIE_DAMAGE)
 			return
