@@ -68,8 +68,6 @@ position = Vector2(34, 0.5)
 shape = SubResource("RectangleShape2D_pou60")
 
 [node name="StaticBody2DCorners" type="StaticBody2D" parent="Area2D/collisions" unique_id=350066759]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DCorners" unique_id=692104665]
 position = Vector2(-1.5, -61)
@@ -94,3 +92,8 @@ position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_hftii")
 
 [node name="TimerFixing" type="Timer" parent="." unique_id=1932570880]
+wait_time = 1.5
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="TimerFixing" to="." method="_on_timer_fixing_timeout"]

@@ -142,7 +142,7 @@ position = Vector2(30.38462, -1.9230773)
 shape = SubResource("RectangleShape2D_kuobi")
 disabled = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2061255441]
+[node name="Area2D" type="Area2D" parent="." unique_id=2061255441 groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=105320764]
 position = Vector2(-1, 0)

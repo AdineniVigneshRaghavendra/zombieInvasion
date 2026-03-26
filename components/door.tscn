@@ -1,12 +1,6 @@
-[gd_scene format=3 uid="uid://cmw7vgarts2o2"]
+[gd_scene format=3 uid="uid://cg0bcisywe7a"]
 
-[ext_resource type="Script" uid="uid://dqhmvokefqhae" path="res://scripts/barrier.gd" id="1_hfmkc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp2fy"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfmkc"]
-bg_color = Color(0.29411766, 1, 0, 1)
+[ext_resource type="Script" uid="uid://dqhmvokefqhae" path="res://scripts/barrier.gd" id="1_jd813"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pou60"]
 size = Vector2(101, 115)
@@ -18,7 +12,7 @@ size = Vector2(65, 7)
 size = Vector2(48, 115)
 
 [node name="barrierV" type="Node2D" unique_id=532799506]
-script = ExtResource("1_hfmkc")
+script = ExtResource("1_jd813")
 
 [node name="bg" type="Node2D" parent="." unique_id=1982344232]
 
@@ -31,10 +25,10 @@ color = Color(0.98455924, 0.34841374, 3.85046e-07, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="bg/boards" unique_id=1172028937]
 layout_mode = 0
-offset_left = -32.0
-offset_right = -18.0
+offset_left = -34.0
+offset_right = 14.0
 offset_bottom = 129.0
-color = Color(0.98455924, 0.34841374, 3.85046e-07, 1)
+color = Color(0.6627451, 0.22352941, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="bg" unique_id=1171680510]
 offset_top = -64.0
@@ -47,17 +41,6 @@ offset_top = 58.0
 offset_right = 65.0
 offset_bottom = 65.0
 color = Color(0.6627451, 0.22352941, 0, 1)
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=700204934]
-offset_left = -33.0
-offset_top = -78.0
-offset_right = 105.0
-offset_bottom = -70.0
-theme_override_styles/background = SubResource("StyleBoxFlat_dp2fy")
-theme_override_styles/fill = SubResource("StyleBoxFlat_hfmkc")
-max_value = 10.0
-value = 10.0
-show_percentage = false
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1157465223]
 
