@@ -11,7 +11,7 @@ extends Node2D
 
 const BULLET_SCENE = preload("res://components/bullet.tscn")
 
-var can_fire: bool = false
+var can_fire: bool = true
 var shot_cooldown: float = 0.0
 var is_knife_attacking: bool = false
 var ignore_next_shot_press: bool = false

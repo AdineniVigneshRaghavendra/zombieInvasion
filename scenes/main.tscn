@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3eyg47es121p" path="res://art/PNG/Zombie 1/zoimbie1_hold.png" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://csvigmesfsj45" path="res://art/kenney_ui-pack/PNG/Red/Default/button_rectangle_depth_border.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://clx5hlkhepcop" path="res://components/player.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://df65gsqw0mdw0" path="res://components/zombie.tscn" id="3_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("1_0wfyh")
@@ -326,6 +327,9 @@ tile_set = SubResource("TileSet_tipki")
 
 [node name="player" parent="gameWorld" unique_id=914764848 instance=ExtResource("2_tbgi4")]
 position = Vector2(571, 504)
+
+[node name="zombie" parent="gameWorld" unique_id=1848364591 instance=ExtResource("3_tbgi4")]
+position = Vector2(317, 504)
 
 [node name="UI" type="Node2D" parent="." unique_id=1063119579]
 

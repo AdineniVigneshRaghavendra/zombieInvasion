@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cqox74t183ois"]
+
+[ext_resource type="Script" uid="uid://dqhmvokefqhae" path="res://scripts/barrier.gd" id="1_xa2di"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp2fy"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfmkc"]
+bg_color = Color(0.29411766, 1, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pou60"]
+size = Vector2(101, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mftlr"]
+size = Vector2(65, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hftii"]
+size = Vector2(48, 115)
+
+[node name="barrierH" type="Node2D" unique_id=532799506]
+rotation = 1.5707964
+script = ExtResource("1_xa2di")
+
+[node name="bg" type="Node2D" parent="." unique_id=1982344232]
+
+[node name="boards" type="ColorRect" parent="bg" unique_id=902939900]
+offset_left = 42.0
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = 65.0
+color = Color(0.98455924, 0.34841374, 3.85046e-07, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="bg/boards" unique_id=1172028937]
+layout_mode = 0
+offset_left = -32.0
+offset_right = -18.0
+offset_bottom = 129.0
+color = Color(0.98455924, 0.34841374, 3.85046e-07, 1)
+
+[node name="ColorRect" type="ColorRect" parent="bg" unique_id=1171680510]
+offset_top = -64.0
+offset_right = 65.0
+offset_bottom = -57.0
+color = Color(0.6627451, 0.22352941, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="bg" unique_id=401394570]
+offset_top = 58.0
+offset_right = 65.0
+offset_bottom = 65.0
+color = Color(0.6627451, 0.22352941, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=700204934]
+offset_left = -30.0
+offset_top = 62.0
+offset_right = 108.0
+offset_bottom = 70.0
+rotation = -1.5707964
+theme_override_styles/background = SubResource("StyleBoxFlat_dp2fy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hfmkc")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1157465223]
+
+[node name="collisions" type="CollisionShape2D" parent="Area2D" unique_id=1756137043]
+position = Vector2(34, 0.5)
+shape = SubResource("RectangleShape2D_pou60")
+
+[node name="StaticBody2DCorners" type="StaticBody2D" parent="Area2D/collisions" unique_id=350066759]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DCorners" unique_id=692104665]
+position = Vector2(-1.5, -61)
+shape = SubResource("RectangleShape2D_mftlr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DCorners" unique_id=1246309381]
+position = Vector2(-1.5, 61)
+shape = SubResource("RectangleShape2D_mftlr")
+
+[node name="StaticBody2DWall" type="StaticBody2D" parent="Area2D/collisions" unique_id=1388338481 groups=["entry"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DWall" unique_id=169230906]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_hftii")
+
+[node name="StaticBody2DDoor" type="StaticBody2D" parent="Area2D/collisions" unique_id=1439575819 groups=["entry"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DDoor" unique_id=1595577666 groups=["entry"]]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_hftii")
+
+[node name="TimerFixing" type="Timer" parent="." unique_id=1932570880]

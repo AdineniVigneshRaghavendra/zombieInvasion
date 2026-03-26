@@ -38,7 +38,7 @@ func _physics_process(delta):
 	velocity = input_vector * speed
 	move_and_slide()
 	
-	shoot_controller.procees_controller(delta)
+	shoot_controller.process_controller(delta)
 	handle_sprite_state()
 	
 func rotate_towards_mouse() -> void:

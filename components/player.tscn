@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://x6qu1g2ovx02" path="res://art/PNG/Man Blue/manBlue_gun.png" id="2_0lm1f"]
 [ext_resource type="Script" uid="uid://brbq2jfyea7fy" path="res://scripts/shoot_controller.gd" id="2_eju5v"]
 [ext_resource type="Texture2D" uid="uid://cdg1unquudulp" path="res://art/PNG/Man Blue/manBlue_silencer.png" id="3_couud"]
+[ext_resource type="Script" uid="uid://o8nx1ypajr8r" path="res://scripts/attack_sprites.gd" id="4_7ta67"]
 [ext_resource type="Texture2D" uid="uid://due2v7dkbthlm" path="res://art/PNG/Man Blue/manBlue_machine.png" id="4_pir3r"]
 [ext_resource type="Texture2D" uid="uid://be54giq7177f" path="res://art/PNG/Man Blue/manBlue_hold.png" id="5_mm1xv"]
 [ext_resource type="Texture2D" uid="uid://hbdqcgfbesyb" path="res://art/PNG/Tiles/tile_241.png" id="6_qe8hj"]
@@ -92,6 +93,7 @@ texture = ExtResource("1_kuobi")
 
 [node name="attackSprites" type="Node2D" parent="body" unique_id=960231167]
 position = Vector2(6, 0)
+script = ExtResource("4_7ta67")
 
 [node name="pistol" type="Sprite2D" parent="body/attackSprites" unique_id=1615106023]
 texture_filter = 1

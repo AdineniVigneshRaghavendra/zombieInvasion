@@ -5,7 +5,7 @@ const BULLETS_IN_CLIP = 2
 const AMMO_RESERVE = 3
 var SHOT_DELAY = 0.3
 
-var GAME_ON = false
+var GAME_ON = true
 var GAME_OVER = false
 var MONEY = 500
 var PLAYER_HEALTH = 90.0
@@ -27,6 +27,7 @@ var wave = 1
 var zom_health = 0
 var dead_zoms = 0
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	if current_items[current_slot][0] == "pistol":
 		SHOT_DELAY = 0.3
