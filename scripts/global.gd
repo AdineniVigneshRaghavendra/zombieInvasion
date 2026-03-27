@@ -5,7 +5,7 @@ const BULLETS_IN_CLIP = 2
 const AMMO_RESERVE = 3
 var SHOT_DELAY = 0.3
 
-var GAME_ON = true
+var GAME_ON = false
 var GAME_OVER = false
 var MONEY = 100000
 var PLAYER_HEALTH = 90.0

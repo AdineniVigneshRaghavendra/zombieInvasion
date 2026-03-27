@@ -5,12 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://cmw7vgarts2o2" path="res://components/barrier_v.tscn" id="2_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://csvigmesfsj45" path="res://art/kenney_ui-pack/PNG/Red/Default/button_rectangle_depth_border.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://clx5hlkhepcop" path="res://components/player.tscn" id="2_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://df65gsqw0mdw0" path="res://components/zombie.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cqox74t183ois" path="res://components/barrier_h.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://cg0bcisywe7a" path="res://components/door.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://curlb1jgijaaj" path="res://components/weapon_spot.tscn" id="5_85g3d"]
+[ext_resource type="Script" uid="uid://dtl2aue1on6a5" path="res://scripts/spawner_node.gd" id="6_trceg"]
+[ext_resource type="Script" uid="uid://doaymeob06dys" path="res://scripts/ui.gd" id="8_trceg"]
 [ext_resource type="Script" uid="uid://dv4bb20se1ota" path="res://scripts/store_components.gd" id="10_choun"]
 [ext_resource type="Script" uid="uid://c68pkmd7d7sph" path="res://scripts/game_screen.gd" id="10_ya4ey"]
+[ext_resource type="Script" uid="uid://7d6ab33112oc" path="res://scripts/game_over_scene.gd" id="12_eb6dy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("1_0wfyh")
@@ -417,16 +419,68 @@ position = Vector2(-534, -703)
 rotation = 4.712389
 weapon_type = "silencer"
 
+[node name="spawnerNode" type="Node2D" parent="gameWorld" unique_id=1656265559]
+script = ExtResource("6_trceg")
+
+[node name="zombiePoints" type="Node2D" parent="gameWorld/spawnerNode" unique_id=767929835]
+
+[node name="bottom" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints" unique_id=750864387]
+
+[node name="point" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/bottom" unique_id=1856844108 groups=["zomPoint"]]
+position = Vector2(132, -160)
+
+[node name="point2" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/bottom" unique_id=66066464 groups=["zomPoint"]]
+position = Vector2(1037, -160)
+
+[node name="point3" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/bottom" unique_id=1582450304 groups=["zomPoint"]]
+position = Vector2(1282, 504)
+
+[node name="point4" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/bottom" unique_id=1272591515 groups=["zomPoint"]]
+position = Vector2(-157, 503)
+
+[node name="left" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints" unique_id=447219745]
+
+[node name="point5" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/left" unique_id=1400572461]
+position = Vector2(-574, -255)
+
+[node name="point6" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/left" unique_id=211311886]
+position = Vector2(-728, -902)
+
+[node name="point7" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/left" unique_id=767047476]
+position = Vector2(65, -767)
+
+[node name="right" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints" unique_id=1561036472]
+
+[node name="point8" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/right" unique_id=1880428327]
+position = Vector2(1045, -767)
+
+[node name="point9" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/right" unique_id=813961931]
+position = Vector2(1665, -255)
+
+[node name="point10" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/right" unique_id=1349921042]
+position = Vector2(1776, -902)
+
+[node name="top" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints" unique_id=1402689528]
+
+[node name="point11" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/top" unique_id=455510128]
+position = Vector2(317, -413)
+
+[node name="point12" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/top" unique_id=1822575131]
+position = Vector2(789, -413)
+
+[node name="point13" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/top" unique_id=1164641726]
+position = Vector2(-9, -1562)
+
+[node name="point14" type="Node2D" parent="gameWorld/spawnerNode/zombiePoints/top" unique_id=592452450]
+position = Vector2(1037, -1562)
+
+[node name="TimerSpawn" type="Timer" parent="gameWorld/spawnerNode" unique_id=423866910]
+
 [node name="player" parent="gameWorld" unique_id=914764848 instance=ExtResource("2_tbgi4")]
 position = Vector2(571, 504)
 
-[node name="zombie" parent="gameWorld" unique_id=1848364591 instance=ExtResource("3_tbgi4")]
-position = Vector2(-136, 502)
-
-[node name="zombie2" parent="gameWorld" unique_id=1195639187 instance=ExtResource("3_tbgi4")]
-position = Vector2(132, -160)
-
 [node name="UI" type="Node2D" parent="." unique_id=1063119579]
+script = ExtResource("8_trceg")
 
 [node name="menu" type="CanvasLayer" parent="UI" unique_id=1816663681]
 visible = false
@@ -487,6 +541,7 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/focus = SubResource("StyleBoxFlat_tipki")
 
 [node name="inGame" type="CanvasLayer" parent="UI" unique_id=963548179]
+visible = false
 
 [node name="gameScreen" type="Node2D" parent="UI/inGame" unique_id=1873584243]
 script = ExtResource("10_ya4ey")
@@ -603,6 +658,7 @@ label_settings = SubResource("LabelSettings_jyhfs")
 vertical_alignment = 1
 
 [node name="store" type="CanvasLayer" parent="UI" unique_id=675507021]
+visible = false
 
 [node name="storeComponents" type="Node2D" parent="UI/store" unique_id=1054857494]
 script = ExtResource("10_choun")
@@ -806,8 +862,10 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/focus = SubResource("StyleBoxFlat_eb6dy")
 
 [node name="gameOver" type="CanvasLayer" parent="UI" unique_id=165048758]
+visible = false
 
 [node name="gameOverScene" type="Node2D" parent="UI/gameOver" unique_id=918805034]
+script = ExtResource("12_eb6dy")
 
 [node name="Panel" type="Panel" parent="UI/gameOver/gameOverScene" unique_id=1431008976]
 visible = false
@@ -858,9 +916,12 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_eb6dy")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/gameOver/gameOverScene" unique_id=1011601079]
 libraries/ = SubResource("AnimationLibrary_jbj1t")
 
+[connection signal="pressed" from="UI/menu/buttonPlay/ButtonPlay" to="UI" method="_on_button_play_pressed"]
+[connection signal="pressed" from="UI/inGame/gameScreen/buttonQuit/ButtonMenu" to="UI" method="_on_button_menu_pressed"]
 [connection signal="pressed" from="UI/store/storeComponents/pistolStore/buyGunButton/ButtonBuyGun" to="UI/store/storeComponents" method="_on_button_buy_gun_pressed"]
 [connection signal="pressed" from="UI/store/storeComponents/pistolStore/buyAmmoButton/ButtonBuyAmmo" to="UI/store/storeComponents" method="_on_button_buy_ammo_pressed"]
 [connection signal="pressed" from="UI/store/storeComponents/silencerStore/buyGunButton/ButtonBuyGun" to="UI/store/storeComponents" method="_on_button_buy_gun_pressed"]
 [connection signal="pressed" from="UI/store/storeComponents/silencerStore/buyAmmoButton/ButtonBuyAmmo" to="UI/store/storeComponents" method="_on_button_buy_ammo_pressed"]
 [connection signal="pressed" from="UI/store/storeComponents/machineStore/buyGunButton/ButtonBuyGun" to="UI/store/storeComponents" method="_on_button_buy_gun_pressed"]
 [connection signal="pressed" from="UI/store/storeComponents/machineStore/buyAmmoButton/ButtonBuyAmmo" to="UI/store/storeComponents" method="_on_button_buy_ammo_pressed"]
+[connection signal="pressed" from="UI/gameOver/gameOverScene/menuButton/ButtonMenu" to="UI" method="_on_button_menu_pressed"]
