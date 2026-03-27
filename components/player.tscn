@@ -157,7 +157,7 @@ script = ExtResource("8_qe8hj")
 
 [node name="TimerKnifeAttack" type="Timer" parent="." unique_id=415255886]
 
-[node name="TimerReload" type="Timer" parent="." unique_id=1245767959]
+[node name="TimerReload" type="Timer" parent="." unique_id=1245767959 groups=["player"]]
 
 [node name="TimerHurting" type="Timer" parent="." unique_id=1818974799]
 

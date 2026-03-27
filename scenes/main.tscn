@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cqox74t183ois" path="res://components/barrier_h.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://cg0bcisywe7a" path="res://components/door.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://curlb1jgijaaj" path="res://components/weapon_spot.tscn" id="5_85g3d"]
+[ext_resource type="Script" uid="uid://dv4bb20se1ota" path="res://scripts/store_components.gd" id="10_choun"]
+[ext_resource type="Script" uid="uid://c68pkmd7d7sph" path="res://scripts/game_screen.gd" id="10_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("1_0wfyh")
@@ -485,9 +487,9 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/focus = SubResource("StyleBoxFlat_tipki")
 
 [node name="inGame" type="CanvasLayer" parent="UI" unique_id=963548179]
-visible = false
 
 [node name="gameScreen" type="Node2D" parent="UI/inGame" unique_id=1873584243]
+script = ExtResource("10_ya4ey")
 
 [node name="healthBar" type="ProgressBar" parent="UI/inGame/gameScreen" unique_id=2119227945]
 offset_left = 18.0
@@ -571,6 +573,7 @@ vertical_alignment = 1
 [node name="gunName" type="Node2D" parent="UI/inGame/gameScreen" unique_id=1022810357]
 
 [node name="LabelPistol" type="Label" parent="UI/inGame/gameScreen/gunName" unique_id=546256284]
+visible = false
 offset_left = 193.0
 offset_top = 44.0
 offset_right = 306.0
@@ -602,6 +605,7 @@ vertical_alignment = 1
 [node name="store" type="CanvasLayer" parent="UI" unique_id=675507021]
 
 [node name="storeComponents" type="Node2D" parent="UI/store" unique_id=1054857494]
+script = ExtResource("10_choun")
 
 [node name="pistolStore" type="Node2D" parent="UI/store/storeComponents" unique_id=799053371]
 visible = false
@@ -853,3 +857,10 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_eb6dy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/gameOver/gameOverScene" unique_id=1011601079]
 libraries/ = SubResource("AnimationLibrary_jbj1t")
+
+[connection signal="pressed" from="UI/store/storeComponents/pistolStore/buyGunButton/ButtonBuyGun" to="UI/store/storeComponents" method="_on_button_buy_gun_pressed"]
+[connection signal="pressed" from="UI/store/storeComponents/pistolStore/buyAmmoButton/ButtonBuyAmmo" to="UI/store/storeComponents" method="_on_button_buy_ammo_pressed"]
+[connection signal="pressed" from="UI/store/storeComponents/silencerStore/buyGunButton/ButtonBuyGun" to="UI/store/storeComponents" method="_on_button_buy_gun_pressed"]
+[connection signal="pressed" from="UI/store/storeComponents/silencerStore/buyAmmoButton/ButtonBuyAmmo" to="UI/store/storeComponents" method="_on_button_buy_ammo_pressed"]
+[connection signal="pressed" from="UI/store/storeComponents/machineStore/buyGunButton/ButtonBuyGun" to="UI/store/storeComponents" method="_on_button_buy_gun_pressed"]
+[connection signal="pressed" from="UI/store/storeComponents/machineStore/buyAmmoButton/ButtonBuyAmmo" to="UI/store/storeComponents" method="_on_button_buy_ammo_pressed"]

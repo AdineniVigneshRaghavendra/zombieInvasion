@@ -33,13 +33,13 @@ func cancle_reload_and_state() -> void:
 		can_fire = true
 
 func handle_reload_interript() -> void:
-	if not reload_timer.is_stopped() and Input.is_action_just_pressed("left_click"):
+	if not reload_timer.is_stopped() and Input.is_action_just_released("left_click"):
 		Global.RELOADING = false
 		reload_timer.stop()
 		can_fire = true
 
 func handle_shooting() -> void:
-	if Global.STORE_OPENED != null:
+	if Global.STORE_OPENED != "":
 		return
 	if ignore_next_shot_press and Input.is_action_pressed("leftclick"):
 		ignore_next_shot_press = false

@@ -7,9 +7,9 @@ var SHOT_DELAY = 0.3
 
 var GAME_ON = true
 var GAME_OVER = false
-var MONEY = 3500
+var MONEY = 100000
 var PLAYER_HEALTH = 90.0
-var STORE_OPENED = null
+var STORE_OPENED = ""
 
 var RELOADING = false
 
