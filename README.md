@@ -1,5 +1,7 @@
 Zombie Invasion 🧟
 
+![Zombie Invasion Gameplay](images (14).jpeg)
+
 Zombie Invasion is my first action game. You should kill zombies with weapons and survive as long as possible 💀.
 
 About Gameplay
