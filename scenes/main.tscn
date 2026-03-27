@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://clx5hlkhepcop" path="res://components/player.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://df65gsqw0mdw0" path="res://components/zombie.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cqox74t183ois" path="res://components/barrier_h.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://cg0bcisywe7a" path="res://components/door.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://curlb1jgijaaj" path="res://components/weapon_spot.tscn" id="5_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("1_0wfyh")
@@ -370,6 +372,48 @@ position = Vector2(0, -1407)
 
 [node name="barrierH6" parent="gameWorld/barriers" unique_id=2053874820 instance=ExtResource("3_tipki")]
 position = Vector2(1024, -1409)
+
+[node name="doors" type="Node2D" parent="gameWorld" unique_id=1259628718]
+
+[node name="door" parent="gameWorld/doors" unique_id=969353737 instance=ExtResource("4_tipki")]
+position = Vector2(-65, 64)
+left_of_door = "left"
+right_of_door = "bottom"
+
+[node name="door4" parent="gameWorld/doors" unique_id=1235623183 instance=ExtResource("4_tipki")]
+position = Vector2(-191, -960)
+left_of_door = "left"
+right_of_door = "top"
+
+[node name="door3" parent="gameWorld/doors" unique_id=381471175 instance=ExtResource("4_tipki")]
+position = Vector2(1217, -960)
+left_of_door = "top"
+right_of_door = "right"
+
+[node name="door2" parent="gameWorld/doors" unique_id=944612972 instance=ExtResource("4_tipki")]
+position = Vector2(1152, 96)
+scale = Vector2(1, 1.5)
+left_of_door = "bottom"
+right_of_door = "right"
+
+[node name="gunsSpots" type="Node2D" parent="gameWorld" unique_id=849976784]
+
+[node name="weaponSpot" parent="gameWorld/gunsSpots" unique_id=572385068 instance=ExtResource("5_85g3d")]
+position = Vector2(542, 11)
+
+[node name="weaponSpot2" parent="gameWorld/gunsSpots" unique_id=1557857387 instance=ExtResource("5_85g3d")]
+position = Vector2(489, -1332)
+weapon_type = "machine"
+
+[node name="weaponSpot3" parent="gameWorld/gunsSpots" unique_id=136497167 instance=ExtResource("5_85g3d")]
+position = Vector2(1578, -803)
+rotation = 1.5707964
+weapon_type = "silencer"
+
+[node name="weaponSpot4" parent="gameWorld/gunsSpots" unique_id=1786693401 instance=ExtResource("5_85g3d")]
+position = Vector2(-534, -703)
+rotation = 4.712389
+weapon_type = "silencer"
 
 [node name="player" parent="gameWorld" unique_id=914764848 instance=ExtResource("2_tbgi4")]
 position = Vector2(571, 504)

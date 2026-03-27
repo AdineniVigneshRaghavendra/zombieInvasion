@@ -6,7 +6,7 @@ var fixing = false
 var zombie_in_area = false
 const DAMAGE_RATE = 1.5
 
-@onready var door_block = $Area2D/collisions/StaticBody2DDoor/CollisionShape2D
+@onready var door_block = $collisions/StaticBody2DDoor/CollisionShape2D
 @onready var health_bar = $ProgressBar
 @onready var fixing_timer: = $TimerFixing
 

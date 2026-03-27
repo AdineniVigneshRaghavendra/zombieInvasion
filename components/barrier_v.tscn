@@ -61,31 +61,36 @@ show_percentage = false
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1157465223]
 
-[node name="collisions" type="CollisionShape2D" parent="Area2D" unique_id=1756137043]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1756137043]
 position = Vector2(34, 0.5)
 shape = SubResource("RectangleShape2D_pou60")
 
-[node name="StaticBody2DCorners" type="StaticBody2D" parent="Area2D/collisions" unique_id=350066759]
+[node name="collisions" type="Node2D" parent="." unique_id=50801939]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DCorners" unique_id=692104665]
+[node name="StaticBody2DCorners" type="StaticBody2D" parent="collisions" unique_id=350066759]
+position = Vector2(34, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/StaticBody2DCorners" unique_id=692104665]
 position = Vector2(-1.5, -61)
 shape = SubResource("RectangleShape2D_mftlr")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DCorners" unique_id=1246309381]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2DCorners" unique_id=1246309381]
 position = Vector2(-1.5, 61)
 shape = SubResource("RectangleShape2D_mftlr")
 
-[node name="StaticBody2DWall" type="StaticBody2D" parent="Area2D/collisions" unique_id=1388338481 groups=["entry"]]
+[node name="StaticBody2DWall" type="StaticBody2D" parent="collisions" unique_id=1388338481 groups=["entry"]]
+position = Vector2(34, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DWall" unique_id=169230906]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/StaticBody2DWall" unique_id=169230906]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_hftii")
 
-[node name="StaticBody2DDoor" type="StaticBody2D" parent="Area2D/collisions" unique_id=1439575819 groups=["entry"]]
+[node name="StaticBody2DDoor" type="StaticBody2D" parent="collisions" unique_id=1439575819 groups=["entry"]]
+position = Vector2(34, 0.5)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/collisions/StaticBody2DDoor" unique_id=1595577666 groups=["entry"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/StaticBody2DDoor" unique_id=1595577666 groups=["entry"]]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_hftii")
 

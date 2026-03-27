@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://curlb1jgijaaj"]
+
+[ext_resource type="Script" uid="uid://dkh852lqkapt7" path="res://scripts/weapon_spot.gd" id="1_e6rjx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3iwr"]
+size = Vector2(81, 36)
+
+[node name="weaponSpot" type="Node2D" unique_id=572385068]
+script = ExtResource("1_e6rjx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=795715880]
+offset_right = 81.0
+offset_bottom = 36.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1244596972]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1636250744]
+position = Vector2(40.5, 18)
+shape = SubResource("RectangleShape2D_v3iwr")
+
+[node name="images" type="Node2D" parent="." unique_id=1431476299]
+
+[node name="pistol" type="Node2D" parent="images" unique_id=1780624017]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="images/pistol" unique_id=1772149819]
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 36.0
+offset_bottom = 25.0
+color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="images/pistol" unique_id=1357176923]
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 15.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="images/pistol" unique_id=1093474489]
+offset_left = 36.0
+offset_top = 15.0
+offset_right = 41.0
+offset_bottom = 19.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[node name="silencer" type="Node2D" parent="images" unique_id=1156117462]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="images/silencer" unique_id=358674088]
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 36.0
+offset_bottom = 25.0
+color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="images/silencer" unique_id=375010469]
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 15.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="images/silencer" unique_id=1530172517]
+offset_left = 54.0
+offset_top = 11.0
+offset_right = 62.0
+offset_bottom = 13.0
+color = Color(5.1608386e-06, 5.160843e-06, 5.16084e-06, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="images/silencer" unique_id=694159853]
+offset_left = 36.0
+offset_top = 15.0
+offset_right = 41.0
+offset_bottom = 19.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[node name="machine" type="Node2D" parent="images" unique_id=1753044018]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="images/machine" unique_id=59472524]
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 36.0
+offset_bottom = 25.0
+color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="images/machine" unique_id=1694723591]
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 33.0
+offset_bottom = 25.0
+color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="images/machine" unique_id=1849270796]
+offset_left = 25.0
+offset_top = 22.0
+offset_right = 31.0
+offset_bottom = 28.0
+color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="images/machine" unique_id=743382185]
+offset_left = 23.0
+offset_top = 25.0
+offset_right = 29.0
+offset_bottom = 31.0
+color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="images/machine" unique_id=945301919]
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 15.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="images/machine" unique_id=1308781470]
+offset_left = 54.0
+offset_top = 10.0
+offset_right = 56.0
+offset_bottom = 14.0
+color = Color(5.1608386e-06, 5.160843e-06, 5.16084e-06, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="images/machine" unique_id=1538443396]
+offset_left = 36.0
+offset_top = 15.0
+offset_right = 41.0
+offset_bottom = 19.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
