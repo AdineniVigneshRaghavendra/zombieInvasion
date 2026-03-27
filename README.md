@@ -1,6 +1,6 @@
 Zombie Invasion 🧟
 
-"Zombie Invasion" (zombie_invasion.jpeg)
+![ZombieInvasion](zombie_invasion.jpeg)
 
 Description
 
