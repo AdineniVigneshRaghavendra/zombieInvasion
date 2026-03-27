@@ -1,23 +1,38 @@
 Zombie Invasion 🧟
 
-![ZombieInvasion](images (14).jpeg)
+"Zombie Invasion" (zombie_invasion.jpeg)
 
-Zombie Invasion is my first action game. You should kill zombies with weapons and survive as long as possible 💀.
+Description
 
-About Gameplay
+Zombie Invasion is my first action game. The main goal of the game is to kill zombies with weapons and survive for as long as possible. As the game progresses, waves of zombies will attack you and each new wave makes the zombies stronger.
 
-- There will be many areas. You should unlock them using the money you get from killing zombies.
-- You get $100 for every zombie you kill.
-- There will be stores in some areas where you can buy different guns and their ammo.
-- There will be barriers that restrict zombies for some seconds. You can repair them by standing near them for some time after they disappear.
-- There will be waves of zombies attacking. Remember, with every wave the zombies’ life increases.
+Gameplay
+
+- There are multiple areas in the map. You must unlock them using the money you earn from killing zombies.
+- You receive $100 for every zombie you kill.
+- There are stores placed in some areas where you can buy different guns and their ammo.
+- Barriers can block zombies for a few seconds. After they disappear, you can repair them by standing near them for some time.
+- Zombies attack in waves, and with every wave the zombies' health increases, making the game more challenging.
 
 Controls
 
-- Use W, A, S, D or Arrow Keys to move.
-- Left click the mouse to shoot.
-- Hold left click for 3 seconds to reload.
-- Press the Spacebar to use knives if a zombie gets too close.
+- W, A, S, D or Arrow Keys → Move the player
+- Left Mouse Click → Shoot
+- Hold Left Mouse Click for 3 seconds → Reload weapon
+- Spacebar → Use knife when zombies get too close
+
+How to Try the Game
+
+You can play the game by downloading it from the project page or playing the web version if available.
+
+Inspiration
+
+This game was created as my first action game project while learning game development. The goal was to build a simple survival shooter with waves of enemies and weapon upgrades.
+
+Technologies Used
+
+- Godot Engine
+- GDScript
 
 ---
 
